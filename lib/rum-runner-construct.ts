@@ -95,8 +95,8 @@ export class RumRunnerConstruct extends Construct {
       environment: {
         BUCKET_NAME: bucket.bucketName,
         RUM_APP: cloudFront.distributionDomainName,
-        // GUEST_ROLE_ARN: cwRumUnauthenticatedRole.roleArn,
-        // IDENTITY_POOL_ID: cwRumIdentityPool.ref,
+        GUEST_ROLE_ARN: cwRumUnauthenticatedRole.roleArn,
+        IDENTITY_POOL_ID: cwRumIdentityPool.ref,
       },
       timeout: Duration.seconds(30),
       entry: join(__dirname, "./rum-runner-fn.ts"),
